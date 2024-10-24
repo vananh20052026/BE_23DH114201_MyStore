@@ -1,0 +1,62 @@
+﻿@model _23DH114201_My_Store.Models.Product
+
+
+<head>
+    <style>
+        #iDetails {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        img {
+            height: 250px;
+            max-width: 250px;
+        }
+    </style>
+</head>
+
+<div class="container-fluid">
+    <hr />
+    <div class="dl-horizontal" id="iDetails">
+        <div class="col-md-4">
+            <img src="@Html.DisplayFor(model => model.ProductImage)" />
+        </div>
+
+        <div class="col-md-8">
+            <dl>
+                <dt>
+                    Tên sản phẩm
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ProductName)
+                </dd>
+
+                <dt>
+                    Đơn giá sản phẩm
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ProductPrice)
+                </dd>
+
+                <dt>
+                    Mô tả sản phẩm
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ProductDescription)
+                </dd>
+
+                <dt>
+                    Danh mục
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Category.CategoryName)
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>
