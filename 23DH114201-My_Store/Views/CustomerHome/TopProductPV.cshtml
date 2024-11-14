@@ -1,0 +1,38 @@
+﻿@model _23DH114201_My_Store.Models.ViewModel.ProductDetailsVM
+@using PagedList.Mvc
+
+<link rel="stylesheet" type="text/css" href="~/Content/myStyle/CustomerHome.css" />
+
+<!-- Hiển thị danh sách sản phẩm -->
+@if (Model.TopProducts != null && Model.TopProducts.Any())
+{
+    <section class="container-fluid listProduct">
+        <h4 style="font-weight:bold;">Sản phẩm bán chạy</h4>
+        <ul class="list-container">
+            @foreach (var product in Model.TopProducts)
+            {
+                <li class="lproduct-item">
+                    <div>
+                        <a href="@Url.Action("ProductDetails", "CustomerHome", new { id = product.ProductID })">
+                            <img src="@Html.DisplayFor(modelItem => product.ProductImage)" />
+                        </a>
+                    </div>
+                    <div>
+                        <h5>@Html.DisplayFor(modelItem => product.ProductName)</h5>
+                        <p class="prodSale">@Html.DisplayFor(modelItem => product.ProductPrice) </p>
+                    </div>
+                </li>
+            }
+        </ul>
+    </section>
+
+    <!-- Hiển thị phân trang -->
+    <div class="pagination-container">
+        @Html.PagedListPager(Model.TopProducts, page => Url.Action("ProductDetails", new
+        {
+            id = Model.product.ProductID,
+            quantity = Model.quantity,
+            page
+        }))
+    </div>
+}

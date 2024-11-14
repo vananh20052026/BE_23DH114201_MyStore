@@ -1,0 +1,209 @@
+﻿html {
+    font-size: 24px;
+    font-family: 'Times New Roman';
+}
+
+body {
+    display: block;
+}
+
+header {
+    display: block;
+    position: sticky;
+    background-color: darkblue;
+    width: 100%;
+    top: 0;
+}
+
+.header-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    width: 100%;
+    z-index: 900;
+}
+
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+    .logo img {
+        width: 120px;
+        height: 50px;
+    }
+
+.menu {
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: darkblue;
+}
+
+.menu-list {
+    text-align: center;
+}
+
+.search-content {
+    text-align: center;
+    background-color: darkblue;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#search-input {
+    padding: 10px;
+    background-color: darkblue;
+}
+
+#search-btn {
+    background-color: darkblue;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.Hotline {
+    font-size: 15px;
+    text-align: center;
+}
+
+.shoppingCart {
+    font-size: 15px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 2px;
+}
+
+    .shoppingCart img {
+        width: 50px;
+        height: auto;
+    }
+
+    .shoppingCart a {
+        text-decoration: none;
+        color: white;
+    }
+
+.prodOrders {
+    font-size: 15px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 2px;
+}
+
+    .prodOrders img {
+        width: 50px;
+        height: auto;
+    }
+
+    .prodOrders a {
+        text-decoration: none;
+        color: white;
+    }
+
+.dangnhap {
+    font-size: 15px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 2px;
+}
+
+    .dangnhap a {
+        display: inline-block;
+        text-decoration: none;
+        border: 2px solid black;
+        padding: 10px;
+        background-color: yellow;
+    }
+
+footer {
+    background-color: black;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.aboutUs {
+    text-align: left;
+    align-items: center;
+}
+
+    .aboutUs h2 {
+        font-size: 25px;
+        margin-bottom: 50px;
+    }
+
+    .aboutUs p {
+        font-size: 15px;
+    }
+
+.support {
+    text-align: left;
+}
+
+    .support h3 {
+        font-size: 15px;
+        text-align: left;
+    }
+
+    .support ul {
+        list-style-type: none;
+        text-align: left;
+    }
+
+        .support ul li {
+            margin: 5px;
+        }
+
+            .support ul li a {
+                text-decoration: none;
+                color: white;
+                font-size: 14px;
+            }
+
+.request {
+    text-align: center;
+}
+
+    .request h3 {
+        font-size: 18px;
+    }
+
+    .request ul {
+        list-style-type: none;
+        text-align: center;
+    }
+
+        .request ul li {
+            margin: 5px;
+        }
+
+            .request ul li a {
+                text-decoration: none;
+                color: white;
+                font-size: 14px;
+                text-align: left;
+            }
+
+.socialMedia {
+    display: flex;
+}
+
+    .socialMedia img {
+        width: 50px;
+        height: 50px;
+        margin-left: 40px
+    }

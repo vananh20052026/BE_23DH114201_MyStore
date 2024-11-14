@@ -1,0 +1,93 @@
+﻿@model _23DH114201_My_Store.Models.ViewModel.RegisterVM
+@{
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<style>
+    .accountbtn{
+        width: 275px;
+        height: 40px;
+        border: 1px solid #808080;
+        margin: 5px;
+        align-items: center;
+    }
+</style>
+
+<div>
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <h2 class="col-md-6">Đăng ký tài khoản</h2>
+        </div>
+        @*Tên dăng nhập*@
+        <div class="form-group">
+            @Html.LabelFor(model => model.Username, new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @*mật khẩu*@
+        <div class="form-group">
+            @Html.LabelFor(model => model.Password, new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+        @*Xác nhận mật khẩu*@
+        <div class="form-group">
+            @Html.LabelFor(model => model.ConfirmPassword, new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @*Họ tên khách hàng*@
+        <div class="form-group">
+            @Html.LabelFor(model => model.CustomerName, new { @class = "control-label col-md-2" })
+            <div class="col-md-6">
+                @Html.EditorFor(model => model.CustomerName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CustomerName)
+            </div>
+        </div>
+        @*SĐT khách hàng*@
+        <div class="form-group">
+            @Html.LabelFor(model => model.CustomerPhone, new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.CustomerPhone, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CustomerPhone)
+            </div>
+        </div>
+        @*Email khách hàng*@
+        <div class="form-group">
+            @Html.LabelFor(model => model.CustomerEmail, new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.CustomerEmail, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CustomerEmail)
+            </div>
+        </div>
+        @*Địa chỉ khách hàng*@
+        <div class="form-group">
+            @Html.LabelFor(model => model.CustomerAddress, new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.CustomerAddress, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CustomerAddress)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-4">
+                <input type="submit" value="Đăng ký" class="btn btn-info accountbtn" /><br />
+                <p>Bạn Đã Có Tài Khoản? <a href="@Url.Action("Login", "Account", null)" />Đăng nhập</p>
+            </div>
+        </div>
+    </div>
+    }
+</div>
+

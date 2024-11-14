@@ -137,9 +137,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoriesController.cs" />
-    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\CustomerHomeController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -179,8 +181,21 @@
     <Compile Include="Models\User.cs">
       <DependentUpon>My_Store.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewModel\Cart.cs" />
+    <Compile Include="Models\ViewModel\CartItem.cs" />
+    <Compile Include="Models\ViewModel\CartService.cs" />
+    <Compile Include="Models\ViewModel\CheckoutVM.cs" />
+    <Compile Include="Models\ViewModel\HomeProductVM.cs" />
+    <Compile Include="Models\ViewModel\LoginVM.cs" />
+    <Compile Include="Models\ViewModel\ProductDetailsVM.cs" />
     <Compile Include="Models\ViewModel\ProductSearchVM.cs" />
+    <Compile Include="Models\ViewModel\RegisterVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
@@ -199,14 +214,25 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\myImg\address.png" />
+    <Content Include="Content\myImg\banner.png" />
+    <Content Include="Content\myImg\fb.png" />
+    <Content Include="Content\myImg\ig.png" />
+    <Content Include="Content\myImg\logo.png" />
+    <Content Include="Content\myImg\prodOrder.png" />
+    <Content Include="Content\myImg\remove.png" />
+    <Content Include="Content\myImg\shoppingCart.png" />
+    <Content Include="Content\myStyle\CustomerDetailProduct.css" />
+    <Content Include="Content\myStyle\CustomerHome.css" />
+    <Content Include="Content\myStyle\CustomerLayout.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Models\My_Store.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>My_Store.Context.cs</LastGenOutput>
       <DependentUpon>My_Store.edmx</DependentUpon>
+      <LastGenOutput>My_Store.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\My_Store.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -219,13 +245,8 @@
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\My_Store.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>My_Store.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\My_Store.edmx.diagram">
-      <DependentUpon>My_Store.edmx</DependentUpon>
-    </Content>
+    <Content Include="Views\Order\Checkout.cshtml" />
+    <Content Include="Views\Order\OrderSuccess.cshtml" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Areas\Admin\Views\Categories\Create.cshtml" />
@@ -242,6 +263,13 @@
     <Content Include="Areas\Admin\Views\Products\CreateEditProductsPV.cshtml" />
     <Content Include="Areas\Admin\Views\Products\DetailsDelProdPV.cshtml" />
     <Content Include="Areas\Admin\Views\Products\ListProductPV.cshtml" />
+    <EntityDeploy Include="Models\My_Store.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>My_Store.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\My_Store.edmx.diagram">
+      <DependentUpon>My_Store.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -264,15 +292,21 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\CustomerHome\Index.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\ProfileInfo.cshtml" />
+    <Content Include="Views\Shared\_CustomerLayout.cshtml" />
+    <Content Include="Views\CustomerHome\FeatureProductPV.cshtml" />
+    <Content Include="Views\CustomerHome\NewProductPV.cshtml" />
+    <Content Include="Views\CustomerHome\ProductDetails.cshtml" />
+    <Content Include="Views\CustomerHome\RelatedProductPV.cshtml" />
+    <Content Include="Views\CustomerHome\TopProductPV.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Areas\Admin\Views\Home\" />
-    <Folder Include="Views\ProductSearch\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -303,6 +337,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

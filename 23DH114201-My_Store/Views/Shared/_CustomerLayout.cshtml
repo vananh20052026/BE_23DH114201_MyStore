@@ -1,0 +1,96 @@
+﻿<link href="~/Content/myStyle/CustomerLayout.css" rel="stylesheet" />
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - QUẢN TRỊ WEBSITE</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <header>
+        <section class="header-container">
+            <div class="container-fluid header-info">
+                <div class="logo">
+                    <a href="~/CustomerHome/Index"><img src="~/Content/myImg/logo.png" /></a>
+                </div>
+
+                <div class="menu">
+                    <label class="menu-list">Sản phẩm bóng đá</label>
+                    <select name="menu" size="1" required>
+                        <option value="---">Quần áo bóng đá</option>
+                        <option value="---">Giày bóng đá</option>
+                        <option value="---">Giày bóng đá fustal</option>
+                        <option value="---">Giày bóng đá sân cỏ</option>
+                        <option value="---">Giày bóng đá cho trẻ em</option>
+                        <option value="---">Các phụ kiện bóng đá</option>
+                    </select>
+                </div>
+
+                <section class="search-content">
+                    <div class="search-container">
+                        <input type="text" id="search-input" placeholder="Bạn đang tìm sản phẩm gì..." />
+                        <button id="search-btn">Tìm kiếm</button>
+                    </div>
+                </section>
+
+                <section class="Hotline">
+                    <h3>10000000</h3>
+                    <p>Hotline miễn phí</p>
+                </section>
+
+                <section class="shoppingCart">
+                    <img src="~/Content/myImg/shoppingCart.png" /> <a href="~/Cart/Index">Giỏ hàng</a>
+                </section>
+
+                <section class="prodOrders">
+                    <img src="~/Content/myImg/prodOrder.png" /> <a href="~/Order/Checkout">Đơn hàng</a>
+                </section>
+
+                <section class="dangnhap">
+                    <a href="~/Account/Login">Đăng nhập</a>
+                </section>
+            </div>
+        </section>
+
+    </header>
+    <div>
+        @RenderBody()
+    </div>
+
+    <footer>
+        <div class="aboutUs">
+            <h2>Về chúng tôi</h2>
+            <p>Địa chỉ:................................</p>
+            <p>Email liên hệ:................................</p>
+        </div>
+
+        <div class="support">
+            <h3>HỖ TRỢ KHÁCH HÀNG</h3>
+            <ul>
+                <li><a href="#">Chọn size giày bóng đá</a></li>
+                <li><a href="#">Chọn size quần áo bóng đá</a></li>
+                <li><a href="#">Bảo hành &amp; Đổi trả</a></li>
+            </ul>
+        </div>
+
+        <div class="request">
+            <h3>Chính sách chung</h3>
+            <ul>
+                <li><a href="#">Nhận in áo theo yêu cầu</a></li>
+                <li><a href="#">Chính sách bảo mật khách hàng</a></li>
+            </ul>
+        </div>
+
+        <div class="socialMedia">
+            <a href="#"><img src="~/Content/myImg/fb.png" /></a>
+            <a href="#"><img src="~/Content/myImg/ig.png" /></a>
+        </div>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

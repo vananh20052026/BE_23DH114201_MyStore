@@ -1,0 +1,28 @@
+﻿.pro {
+    padding: 50px 10px 50px 10px;
+    background-color: ghostwhite;
+}
+
+.pro-section {
+    background-color: white;
+    border: 1px groove #ffffff;
+    border-radius: 10px;
+/*    padding: 5px;*/
+    margin: 10px;
+}
+
+.pro-section img {
+    max-height: 250px;
+    max-width: 200px;
+    padding: 5px;
+}
+
+.pro-price {
+    font-weight: bolder;
+    font-size: larger;
+    color: red;
+}
+
+.pro-sale {
+    font-weight: lighter;
+}
